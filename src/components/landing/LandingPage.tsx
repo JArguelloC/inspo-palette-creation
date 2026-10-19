@@ -114,6 +114,9 @@ export function LandingPage() {
             <li>
               <a href="#prototipo">Prototipo</a>
             </li>
+            <li>
+              <a href="#precios">Precios</a>
+            </li>
           </ul>
           <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
             <a href="#prototipo" className="btn btn-primary btn-desktop">
@@ -1064,7 +1067,128 @@ export function LandingPage() {
           </div>
         </section>
 
-        {/* 9. CTA FINAL */}
+        {/* 9. MODELO DE INGRESOS */}
+        <section className="section revenue" id="precios">
+          <div className="container">
+            <div className="section-head">
+              <span className="badge reveal">
+                <i>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                  </svg>
+                </i>
+                Cómo ganamos
+              </span>
+              <h2 className="h2 reveal d1">
+                Gratis para el pequeño. <span className="hl">Ganamos cuando tú ganas.</span>
+              </h2>
+              <p className="lead reveal d2">
+                Primero llegamos a muchos comensales con los restaurantes pequeños. Los ingresos
+                vienen de quienes tienen presupuesto.
+              </p>
+            </div>
+            <div className="grid-4">
+              <article className="card benefit phase now reveal">
+                <div className="phase-top">
+                  <span className="ic">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M3 21h18M5 21V10l7-6 7 6v11M9 21v-6h6v6" />
+                    </svg>
+                  </span>
+                  <span className="phase-n">Hoy</span>
+                </div>
+                <div className="phase-price">$0</div>
+                <h3>Restaurantes pequeños</h3>
+                <p>Gratis para ti y tus comensales mientras validamos.</p>
+              </article>
+              <article className="card benefit phase reveal d1">
+                <div className="phase-top">
+                  <span className="ic">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M13 2L4 14h7l-1 8 9-12h-7z" />
+                    </svg>
+                  </span>
+                  <span className="phase-n">Fase 2</span>
+                </div>
+                <div className="phase-price">
+                  $0,25–0,50 <small>por almuerzo canjeado</small>
+                </div>
+                <h3>Pago por resultado</h3>
+                <p>Ofertas flash y destacados. Solo pagas si te llegan clientes.</p>
+              </article>
+              <article className="card benefit phase reveal d2">
+                <div className="phase-top">
+                  <span className="ic">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M3 3v18h18M7 15l4-4 3 3 6-6" />
+                    </svg>
+                  </span>
+                  <span className="phase-n">Fase 3</span>
+                </div>
+                <div className="phase-price">
+                  $45–80 <small>/mes</small>
+                </div>
+                <h3>Grandes y cadenas</h3>
+                <p>Cafeterías, patios de comida y cadenas. O 1–2 % sobre planes vendidos.</p>
+              </article>
+              <article className="card benefit phase reveal d3">
+                <div className="phase-top">
+                  <span className="ic">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <rect x="3" y="6" width="18" height="14" rx="3" />
+                      <path d="M3 10h18M16 15h2" />
+                    </svg>
+                  </span>
+                  <span className="phase-n">Futuro</span>
+                </div>
+                <div className="phase-price">
+                  % <small>por pago en la app</small>
+                </div>
+                <h3>Wallet de alimentación</h3>
+                <p>Pagas tu comida desde Bocadoo, como en las apps de pago.</p>
+              </article>
+            </div>
+            <p className="phase-note reveal">
+              <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 11v5M12 8h.01" />
+              </svg>
+              Cifras referenciales, en validación con dueños de restaurantes.
+            </p>
+          </div>
+        </section>
+
+        {/* 10. CTA FINAL */}
         <section className="section cta" id="contacto">
           <div className="container cta-inner">
             <div className="section-head">
@@ -1152,7 +1276,7 @@ export function LandingPage() {
         </section>
       </main>
 
-      {/* 10. FOOTER */}
+      {/* 11. FOOTER */}
       <footer>
         <div className="container">
           <div className="foot-top">
@@ -1181,6 +1305,9 @@ export function LandingPage() {
                   </li>
                   <li>
                     <a href="#prototipo">Prototipo</a>
+                  </li>
+                  <li>
+                    <a href="#precios">Precios</a>
                   </li>
                 </ul>
               </div>

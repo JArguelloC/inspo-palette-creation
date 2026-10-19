@@ -294,6 +294,23 @@ html:has(.landing){scroll-behavior:smooth}
   .landing .tab .ic{display:none}
 }
 
+/* ---------- Modelo de ingresos ---------- */
+.landing .revenue{background:var(--bg);padding-top:24px}
+.landing .phase{display:flex;flex-direction:column}
+.landing .phase-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.landing .phase-n{font-size:13px;font-weight:700;color:var(--purple);background:var(--bg);padding:5px 12px;border-radius:999px}
+.landing .phase-price{margin-top:22px;font-size:28px;font-weight:800;letter-spacing:-.03em;line-height:1.1;color:var(--dark)}
+.landing .phase-price small{display:block;margin-top:4px;font-size:13px;font-weight:600;letter-spacing:0;color:var(--text-soft)}
+.landing .phase h3{margin-top:14px}
+.landing .phase.now{background:var(--purple);border-color:var(--purple);box-shadow:0 14px 36px rgba(123,44,191,.3)}
+.landing .phase.now .ic{background:#fff}
+.landing .phase.now .ic svg{stroke:var(--purple)}
+.landing .phase.now .phase-n{background:rgba(255,255,255,.18);color:#fff}
+.landing .phase.now .phase-price,.landing .phase.now h3{color:#fff}
+.landing .phase.now p{color:rgba(255,255,255,.82)}
+.landing .phase-note{display:flex;gap:10px;align-items:center;justify-content:center;max-width:max-content;margin:28px auto 0;font-size:13px;color:var(--text-soft);background:#fff;padding:12px 16px;border-radius:16px;border:1px solid var(--line)}
+.landing .phase-note svg{width:18px;height:18px;stroke:var(--purple);flex-shrink:0}
+
 /* ---------- CTA ---------- */
 .landing .cta{margin:0 12px;border-radius:40px;background:linear-gradient(160deg,var(--bg) 0%,#efdcff 45%,var(--purple-light) 100%);position:relative;overflow:hidden}
 .landing .cta::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(123,44,191,.25),transparent 70%);right:-120px;bottom:-160px}
