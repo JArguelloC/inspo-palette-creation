@@ -30,6 +30,7 @@ import lunchImage from "@/assets/bocadoo-lunch.jpg";
 import soupImage from "@/assets/bocadoo-soup.jpg";
 import veggieImage from "@/assets/bocadoo-veggie.jpg";
 
+import { MENU_SECTIONS, useSavedMenu } from "./menu-service";
 import {
   DAILY_GOAL,
   initialsOf,
@@ -475,22 +476,28 @@ const Dish = ({
   title,
   name,
   image,
+  description,
+  price,
   soldOut = false,
 }: {
   title: string;
   name: string;
-  image: string;
+  image?: string | undefined;
+  description?: string | undefined;
+  price?: number | undefined;
   soldOut?: boolean;
 }) => (
   <div className={`overflow-hidden rounded-2xl bg-card shadow-soft ${soldOut ? "opacity-60" : ""}`}>
-    <img
-      src={image}
-      alt={name}
-      loading="lazy"
-      width={896}
-      height={752}
-      className="h-[90px] w-full object-cover"
-    />
+    {image && (
+      <img
+        src={image}
+        alt={name}
+        loading="lazy"
+        width={896}
+        height={752}
+        className="h-[90px] w-full object-cover"
+      />
+    )}
     <div className="p-3">
       <div className="flex items-center justify-between">
         <span className="text-[8px] font-black text-primary">{title.toUpperCase()}</span>
@@ -501,6 +508,12 @@ const Dish = ({
         )}
       </div>
       <p className="mt-1 text-[11px] font-extrabold">{name}</p>
+      {description && (
+        <p className="mt-0.5 text-[9px] leading-snug text-muted-foreground">{description}</p>
+      )}
+      {price !== undefined && (
+        <p className="mt-1 text-[10px] font-black text-primary">{money(price)}</p>
+      )}
       <div className="mt-2 flex items-center gap-1 text-[8px] text-muted-foreground">
         <Check size={11} /> Disponible hoy
       </div>
@@ -510,6 +523,14 @@ const Dish = ({
 
 export function OwnerMenuScreen() {
   const [drink, setDrink] = useState(true);
+  // Si el dueño guardó un menú, reemplaza a los platos de ejemplo.
+  const saved = useSavedMenu();
+  const savedDishes = saved
+    ? MENU_SECTIONS.filter((s) => s.id !== "jugo").flatMap((s) =>
+        saved.sections[s.id].map((dish) => ({ ...dish, title: s.label })),
+      )
+    : [];
+  const savedJuices = saved?.sections.jugo.map((d) => d.name).join(" · ");
   return (
     <div className="flex min-h-0 flex-1 flex-col">
       <div className="no-scrollbar min-h-0 flex-1 overflow-y-auto px-5 pb-4">
@@ -519,25 +540,74 @@ export function OwnerMenuScreen() {
             <h2 className="mt-1 text-[22px] font-black">Miércoles 30</h2>
             <p className="text-[10px] text-muted-foreground">Septiembre · 2026</p>
           </div>
-          <div className="grid h-11 w-11 place-items-center rounded-xl bg-accent text-primary">
-            <CalendarDays size={20} />
+          <div className="flex gap-2">
+            <div className="grid h-11 w-11 place-items-center rounded-xl bg-accent text-primary">
+              <CalendarDays size={20} />
+            </div>
+            <Link
+              to="/app/dueno/agregar-menu"
+              aria-label="Agregar menú"
+              className="grid h-11 w-11 place-items-center rounded-xl bg-primary text-primary-foreground shadow-brand outline-none ring-primary ring-offset-2 focus-visible:ring-2"
+            >
+              <Plus size={20} strokeWidth={2.6} />
+            </Link>
           </div>
         </div>
-        <div className="mt-5 grid grid-cols-2 gap-3">
-          <Dish title="Sopa" name="Locro de papa" image={soupImage} />
-          <Dish title="Segundo" name="Pollo a la plancha" image={lunchImage} />
-          <Dish title="Opción veggie" name="Bowl de quinoa" image={veggieImage} />
-          <Dish title="Postre" name="Higos con queso" image={soupImage} soldOut />
-        </div>
+        {saved ? (
+          savedDishes.length > 0 && (
+            <div className="mt-5 grid grid-cols-2 gap-3">
+              {savedDishes.map((d) => (
+                <Dish
+                  key={d.id}
+                  title={d.title}
+                  name={d.name}
+                  description={d.description}
+                  price={d.price}
+                />
+              ))}
+            </div>
+          )
+        ) : (
+          <div className="mt-5 grid grid-cols-2 gap-3">
+            <Dish title="Sopa" name="Locro de papa" image={soupImage} />
+            <Dish title="Segundo" name="Pollo a la plancha" image={lunchImage} />
+            <Dish title="Opción veggie" name="Bowl de quinoa" image={veggieImage} />
+            <Dish title="Postre" name="Higos con queso" image={soupImage} soldOut />
+          </div>
+        )}
         <div className="mt-4 rounded-2xl bg-muted p-3">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-[8px] font-bold text-muted-foreground">BEBIDA DE HOY</p>
-              <p className="mt-1 text-[11px] font-extrabold">Jugo de naranjilla</p>
+              <p className="mt-1 text-[11px] font-extrabold">
+                {savedJuices || "Jugo de naranjilla"}
+              </p>
             </div>
             <Toggle on={drink} onToggle={() => setDrink((v) => !v)} label="Bebida disponible" />
           </div>
         </div>
+        {saved && saved.specials.length > 0 && (
+          <>
+            <div className="mt-5 flex items-center justify-between">
+              <h3 className="text-sm font-black">Platos a la carta</h3>
+              <Link to="/app/dueno/agregar-menu" className="text-[9px] font-bold text-primary">
+                Editar
+              </Link>
+            </div>
+            <div className="mt-3 grid grid-cols-2 gap-3">
+              {saved.specials.map((d) => (
+                <Dish
+                  key={d.id}
+                  title="A la carta"
+                  name={d.name}
+                  image={d.photo}
+                  description={d.description}
+                  price={d.price}
+                />
+              ))}
+            </div>
+          </>
+        )}
         <div className="mt-5 flex items-center justify-between">
           <h3 className="text-sm font-black">Menú de la semana</h3>
           <span className="text-[9px] font-bold text-primary">Editar</span>

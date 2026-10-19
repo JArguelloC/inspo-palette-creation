@@ -16,6 +16,7 @@ import { Route as AppComensalIndexRouteImport } from './routes/app/comensal/inde
 import { Route as AppComensalAjustesRouteImport } from './routes/app/comensal/ajustes'
 import { Route as AppComensalRestaurantesRouteImport } from './routes/app/comensal/restaurantes'
 import { Route as AppDuenoIndexRouteImport } from './routes/app/dueno/index'
+import { Route as AppDuenoAgregarMenuRouteImport } from './routes/app/dueno/agregar-menu'
 import { Route as AppDuenoAjustesRouteImport } from './routes/app/dueno/ajustes'
 import { Route as AppDuenoCobrarRouteImport } from './routes/app/dueno/cobrar'
 import { Route as AppDuenoDescontarRouteImport } from './routes/app/dueno/descontar'
@@ -57,6 +58,11 @@ const AppComensalRestaurantesRoute = AppComensalRestaurantesRouteImport.update({
 const AppDuenoIndexRoute = AppDuenoIndexRouteImport.update({
   id: '/app/dueno/',
   path: '/app/dueno/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppDuenoAgregarMenuRoute = AppDuenoAgregarMenuRouteImport.update({
+  id: '/app/dueno/agregar-menu',
+  path: '/app/dueno/agregar-menu',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppDuenoAjustesRoute = AppDuenoAjustesRouteImport.update({
@@ -102,6 +108,7 @@ export interface FileRoutesByFullPath {
   '/app/': typeof AppIndexRoute
   '/app/comensal/ajustes': typeof AppComensalAjustesRoute
   '/app/comensal/restaurantes': typeof AppComensalRestaurantesRoute
+  '/app/dueno/agregar-menu': typeof AppDuenoAgregarMenuRoute
   '/app/dueno/ajustes': typeof AppDuenoAjustesRoute
   '/app/dueno/cobrar': typeof AppDuenoCobrarRoute
   '/app/dueno/descontar': typeof AppDuenoDescontarRoute
@@ -118,6 +125,7 @@ export interface FileRoutesByTo {
   '/app': typeof AppIndexRoute
   '/app/comensal/ajustes': typeof AppComensalAjustesRoute
   '/app/comensal/restaurantes': typeof AppComensalRestaurantesRoute
+  '/app/dueno/agregar-menu': typeof AppDuenoAgregarMenuRoute
   '/app/dueno/ajustes': typeof AppDuenoAjustesRoute
   '/app/dueno/cobrar': typeof AppDuenoCobrarRoute
   '/app/dueno/descontar': typeof AppDuenoDescontarRoute
@@ -135,6 +143,7 @@ export interface FileRoutesById {
   '/app/': typeof AppIndexRoute
   '/app/comensal/ajustes': typeof AppComensalAjustesRoute
   '/app/comensal/restaurantes': typeof AppComensalRestaurantesRoute
+  '/app/dueno/agregar-menu': typeof AppDuenoAgregarMenuRoute
   '/app/dueno/ajustes': typeof AppDuenoAjustesRoute
   '/app/dueno/cobrar': typeof AppDuenoCobrarRoute
   '/app/dueno/descontar': typeof AppDuenoDescontarRoute
@@ -153,6 +162,7 @@ export interface FileRouteTypes {
     | '/app/'
     | '/app/comensal/ajustes'
     | '/app/comensal/restaurantes'
+    | '/app/dueno/agregar-menu'
     | '/app/dueno/ajustes'
     | '/app/dueno/cobrar'
     | '/app/dueno/descontar'
@@ -169,6 +179,7 @@ export interface FileRouteTypes {
     | '/app'
     | '/app/comensal/ajustes'
     | '/app/comensal/restaurantes'
+    | '/app/dueno/agregar-menu'
     | '/app/dueno/ajustes'
     | '/app/dueno/cobrar'
     | '/app/dueno/descontar'
@@ -185,6 +196,7 @@ export interface FileRouteTypes {
     | '/app/'
     | '/app/comensal/ajustes'
     | '/app/comensal/restaurantes'
+    | '/app/dueno/agregar-menu'
     | '/app/dueno/ajustes'
     | '/app/dueno/cobrar'
     | '/app/dueno/descontar'
@@ -202,6 +214,7 @@ export interface RootRouteChildren {
   AppIndexRoute: typeof AppIndexRoute
   AppComensalAjustesRoute: typeof AppComensalAjustesRoute
   AppComensalRestaurantesRoute: typeof AppComensalRestaurantesRoute
+  AppDuenoAgregarMenuRoute: typeof AppDuenoAgregarMenuRoute
   AppDuenoAjustesRoute: typeof AppDuenoAjustesRoute
   AppDuenoCobrarRoute: typeof AppDuenoCobrarRoute
   AppDuenoDescontarRoute: typeof AppDuenoDescontarRoute
@@ -264,6 +277,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppDuenoIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/dueno/agregar-menu': {
+      id: '/app/dueno/agregar-menu'
+      path: '/app/dueno/agregar-menu'
+      fullPath: '/app/dueno/agregar-menu'
+      preLoaderRoute: typeof AppDuenoAgregarMenuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/app/dueno/ajustes': {
       id: '/app/dueno/ajustes'
       path: '/app/dueno/ajustes'
@@ -322,6 +342,7 @@ const rootRouteChildren: RootRouteChildren = {
   AppIndexRoute: AppIndexRoute,
   AppComensalAjustesRoute: AppComensalAjustesRoute,
   AppComensalRestaurantesRoute: AppComensalRestaurantesRoute,
+  AppDuenoAgregarMenuRoute: AppDuenoAgregarMenuRoute,
   AppDuenoAjustesRoute: AppDuenoAjustesRoute,
   AppDuenoCobrarRoute: AppDuenoCobrarRoute,
   AppDuenoDescontarRoute: AppDuenoDescontarRoute,
