@@ -730,6 +730,9 @@ export function NewPlanScreen({ initialType = "Mensual" }: { initialType?: PlanT
         <PrimaryButton onClick={publish}>
           <Check size={16} /> Guardar y publicar plan
         </PrimaryButton>
+        <p className="mt-2 text-center text-[10px] text-muted-foreground">
+          Gratis para publicar. Bocadoo cobra un porcentaje solo cuando se canjea la oferta.
+        </p>
       </div>
     </div>
   );

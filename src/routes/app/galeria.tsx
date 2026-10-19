@@ -887,6 +887,9 @@ const OwnerMenu = () => (
         <div className="mt-5 flex h-12 items-center justify-center gap-2 rounded-xl bg-foreground text-xs font-extrabold text-background">
           <Eye size={16} /> Publicar menú
         </div>
+        <p className="mt-2 text-center text-[10px] text-muted-foreground">
+          Gratis para publicar. Bocadoo cobra un porcentaje solo cuando se canjea la oferta.
+        </p>
       </div>
       <NavBar active="Menú" owner />
     </div>
@@ -1480,6 +1483,9 @@ const NewPlanScreen = () => (
         <PrimaryButton>
           <Check size={16} /> Guardar y publicar plan
         </PrimaryButton>
+        <p className="mt-2 text-center text-[10px] text-muted-foreground">
+          Gratis para publicar. Bocadoo cobra un porcentaje solo cuando se canjea la oferta.
+        </p>
       </div>
     </div>
   </Phone>

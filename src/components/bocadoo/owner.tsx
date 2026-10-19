@@ -572,6 +572,9 @@ export function OwnerMenuScreen() {
         >
           <Eye size={16} /> Publicar menú
         </button>
+        <p className="mt-2 text-center text-[10px] text-muted-foreground">
+          Gratis para publicar. Bocadoo cobra un porcentaje solo cuando se canjea la oferta.
+        </p>
       </div>
       <NavBar active="Menú" owner />
     </div>

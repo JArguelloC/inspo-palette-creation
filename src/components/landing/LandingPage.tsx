@@ -1089,8 +1089,8 @@ export function LandingPage() {
                 Gratis para el pequeño. <span className="hl">Ganamos cuando tú ganas.</span>
               </h2>
               <p className="lead reveal d2">
-                Primero llegamos a muchos comensales con los restaurantes pequeños. Los ingresos
-                vienen de quienes tienen presupuesto.
+                Publicar es gratis. Solo cobramos un porcentaje cuando un comensal canjea una oferta
+                y la validas con el QR.
               </p>
             </div>
             <div className="grid-4">
@@ -1126,13 +1126,13 @@ export function LandingPage() {
                       <path d="M13 2L4 14h7l-1 8 9-12h-7z" />
                     </svg>
                   </span>
-                  <span className="phase-n">Fase 2</span>
+                  <span className="phase-n">Al canjear</span>
                 </div>
                 <div className="phase-price">
-                  $0,25–0,50 <small>por almuerzo canjeado</small>
+                  5–10 % <small>del precio de la oferta</small>
                 </div>
                 <h3>Pago por resultado</h3>
-                <p>Ofertas flash y destacados. Solo pagas si te llegan clientes.</p>
+                <p>Solo cuando se canjea y validas con el QR. Si no llegan clientes, no pagas.</p>
               </article>
               <article className="card benefit phase reveal d2">
                 <div className="phase-top">
@@ -1147,13 +1147,13 @@ export function LandingPage() {
                       <path d="M3 3v18h18M7 15l4-4 3 3 6-6" />
                     </svg>
                   </span>
-                  <span className="phase-n">Fase 3</span>
+                  <span className="phase-n">Siempre</span>
                 </div>
                 <div className="phase-price">
-                  $45–80 <small>/mes</small>
+                  $0 <small>de mensualidad</small>
                 </div>
-                <h3>Grandes y cadenas</h3>
-                <p>Cafeterías, patios de comida y cadenas. O 1–2 % sobre planes vendidos.</p>
+                <h3>Sin suscripción</h3>
+                <p>Aplica a platos, ofertas flash y planes en promoción.</p>
               </article>
               <article className="card benefit phase reveal d3">
                 <div className="phase-top">
@@ -1209,7 +1209,10 @@ export function LandingPage() {
               <h2 className="h2 reveal d1">
                 Digitaliza tus planes de almuerzo <span className="hl">este mes</span>
               </h2>
-              <p className="lead reveal d2">Estamos buscando los primeros restaurantes en Quito.</p>
+              <p className="lead reveal d2">
+                Estamos buscando los primeros restaurantes en Quito. Gratis para publicar: Bocadoo
+                cobra un porcentaje solo cuando se canjea la oferta.
+              </p>
             </div>
             <form
               className={sent ? "form reveal d1 in sent" : "form reveal d1"}
